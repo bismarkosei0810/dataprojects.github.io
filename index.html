@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Bismark Osei-Bonsu | Data Analyst &amp; Data Scientist</title>
+		<meta
+			name="description"
+			content="Portfolio for Bismark Osei Bonsu, a data analyst and data scientist focused on machine learning, SQL analytics, dashboarding, and business insights."
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--ink: #17202a;
+				--muted: #5e6a77;
+				--line: #dce3ea;
+				--paper: #f7f9fb;
+				--white: #ffffff;
+				--teal: #0f766e;
+				--green: #2f855a;
+				--gold: #c88719;
+				--coral: #d85f45;
+				--navy: #17324d;
+				--shadow: 0 24px 60px rgba(23, 32, 42, 0.12);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				margin: 0;
+				font-family: Inter, Arial, sans-serif;
+				background: var(--paper);
+				color: var(--ink);
+				line-height: 1.65;
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			.page {
+				min-height: 100vh;
+			}
+
+			.topbar {
+				position: sticky;
+				top: 0;
+				z-index: 20;
+				background: rgba(247, 249, 251, 0.88);
+				backdrop-filter: blur(18px);
+				border-bottom: 1px solid rgba(220, 227, 234, 0.9);
+			}
+
+			.nav {
+				width: min(1160px, calc(100% - 40px));
+				margin: 0 auto;
+				min-height: 72px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 24px;
+			}
+
+			.brand {
+				display: flex;
+				align-items: center;
+				gap: 12px;
+				font-weight: 800;
+				letter-spacing: 0;
+			}
+
+			.brand-mark {
+				width: 42px;
+				height: 42px;
+				display: grid;
+				place-items: center;
+				border-radius: 8px;
+				background: var(--ink);
+				color: var(--white);
+				font-weight: 800;
+			}
+
+			.nav-links {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+
+			.nav-links a {
+				padding: 10px 12px;
+				border-radius: 6px;
+				color: var(--muted);
+				font-weight: 700;
+				font-size: 0.92rem;
+			}
+
+			.nav-links a:hover {
+				color: var(--ink);
+				background: var(--white);
+			}
+
+			.hero {
+				width: min(1160px, calc(100% - 40px));
+				margin: 0 auto;
+				padding: 72px 0 48px;
+				display: grid;
+				grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+				gap: 46px;
+				align-items: center;
+			}
+
+			.kicker {
+				margin: 0 0 14px;
+				color: var(--teal);
+				text-transform: uppercase;
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.12em;
+			}
+
+			h1,
+			h2,
+			h3 {
+				line-height: 1.08;
+				margin: 0;
+				letter-spacing: 0;
+			}
+
+			h1 {
+				font-size: clamp(2.55rem, 7vw, 5.55rem);
+				max-width: 780px;
+			}
+
+			.lede {
+				margin: 24px 0 0;
+				max-width: 710px;
+				color: var(--muted);
+				font-size: 1.14rem;
+			}
+
+			.hero-actions,
+			.card-actions {
+				margin-top: 30px;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 12px;
+			}
+
+			.button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 46px;
+				padding: 0 18px;
+				border: 1px solid var(--ink);
+				border-radius: 7px;
+				background: var(--ink);
+				color: var(--white);
+				font-weight: 800;
+				font-size: 0.95rem;
+			}
+
+			.button.secondary {
+				background: var(--white);
+				color: var(--ink);
+				border-color: var(--line);
+			}
+
+			.button:hover {
+				transform: translateY(-1px);
+			}
+
+			.hero-panel {
+				background: var(--white);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				box-shadow: var(--shadow);
+				overflow: hidden;
+			}
+
+			.panel-top {
+				padding: 18px 20px;
+				border-bottom: 1px solid var(--line);
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 18px;
+			}
+
+			.panel-title {
+				font-weight: 800;
+			}
+
+			.status {
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				color: var(--green);
+				font-weight: 800;
+				font-size: 0.83rem;
+			}
+
+			.status::before {
+				content: "";
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: var(--green);
+			}
+
+			.metrics {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				border-bottom: 1px solid var(--line);
+			}
+
+			.metric {
+				padding: 20px;
+				border-right: 1px solid var(--line);
+			}
+
+			.metric:last-child {
+				border-right: 0;
+			}
+
+			.metric strong {
+				display: block;
+				font-size: 1.65rem;
+				line-height: 1;
+			}
+
+			.metric span {
+				display: block;
+				margin-top: 7px;
+				color: var(--muted);
+				font-size: 0.78rem;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+
+			.chart {
+				padding: 26px 24px 22px;
+			}
+
+			.chart svg {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			.chart-caption {
+				display: flex;
+				justify-content: space-between;
+				gap: 18px;
+				margin-top: 16px;
+				color: var(--muted);
+				font-size: 0.88rem;
+			}
+
+			section {
+				width: min(1160px, calc(100% - 40px));
+				margin: 0 auto;
+				padding: 66px 0;
+			}
+
+			.section-head {
+				display: flex;
+				align-items: end;
+				justify-content: space-between;
+				gap: 28px;
+				margin-bottom: 28px;
+			}
+
+			.section-head h2 {
+				font-size: clamp(1.85rem, 4vw, 3rem);
+			}
+
+			.section-head p {
+				margin: 0;
+				max-width: 560px;
+				color: var(--muted);
+			}
+
+			.project-feature {
+				display: grid;
+				grid-template-columns: 1.05fr 0.95fr;
+				gap: 0;
+				background: var(--white);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 18px 45px rgba(23, 32, 42, 0.08);
+			}
+
+			.project-copy {
+				padding: 38px;
+			}
+
+			.eyebrow {
+				margin: 0 0 10px;
+				color: var(--coral);
+				font-weight: 800;
+				font-size: 0.8rem;
+				text-transform: uppercase;
+				letter-spacing: 0.12em;
+			}
+
+			.project-copy h3 {
+				font-size: clamp(1.65rem, 3.5vw, 2.45rem);
+			}
+
+			.project-copy p {
+				color: var(--muted);
+			}
+
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				padding: 0;
+				margin: 24px 0 0;
+				list-style: none;
+			}
+
+			.tags li {
+				padding: 7px 10px;
+				border-radius: 999px;
+				background: #edf3f2;
+				color: #28504d;
+				font-weight: 800;
+				font-size: 0.78rem;
+			}
+
+			.project-visual {
+				background: var(--white);
+			}
+
+			.project-visual img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			.cards {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 18px;
+			}
+
+			.card {
+				background: var(--white);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				padding: 26px;
+			}
+
+			.card h3 {
+				font-size: 1.28rem;
+			}
+
+			.card p {
+				color: var(--muted);
+			}
+
+			.card-icon {
+				width: 44px;
+				height: 44px;
+				display: grid;
+				place-items: center;
+				margin-bottom: 18px;
+				border-radius: 8px;
+				background: #eef4f8;
+				color: var(--navy);
+				font-weight: 900;
+			}
+
+			.skill-layout {
+				display: grid;
+				grid-template-columns: 0.9fr 1.1fr;
+				gap: 28px;
+				align-items: start;
+			}
+
+			.stack {
+				display: grid;
+				gap: 14px;
+			}
+
+			.skill-row {
+				background: var(--white);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				padding: 20px;
+			}
+
+			.skill-row strong {
+				display: block;
+				margin-bottom: 6px;
+			}
+
+			.skill-row span {
+				color: var(--muted);
+			}
+
+			.tools {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+
+			.tools span {
+				padding: 11px 13px;
+				background: var(--white);
+				border: 1px solid var(--line);
+				border-radius: 7px;
+				font-weight: 800;
+				color: var(--navy);
+			}
+
+			.timeline {
+				display: grid;
+				gap: 16px;
+			}
+
+			.timeline-item {
+				display: grid;
+				grid-template-columns: 220px 1fr;
+				gap: 26px;
+				padding: 26px;
+				background: var(--white);
+				border: 1px solid var(--line);
+				border-radius: 8px;
+			}
+
+			.timeline-meta {
+				color: var(--muted);
+				font-size: 0.92rem;
+				font-weight: 700;
+			}
+
+			.timeline-meta strong {
+				display: block;
+				color: var(--teal);
+				font-size: 0.82rem;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				margin-bottom: 7px;
+			}
+
+			.timeline-copy h3 {
+				font-size: 1.35rem;
+			}
+
+			.timeline-copy p {
+				margin: 8px 0 0;
+				color: var(--muted);
+			}
+
+			.timeline-copy ul {
+				margin: 14px 0 0;
+				padding-left: 20px;
+				color: var(--muted);
+			}
+
+			.timeline-copy li + li {
+				margin-top: 8px;
+			}
+
+			.contact-band {
+				width: 100%;
+				background: var(--ink);
+				color: var(--white);
+				margin-top: 54px;
+			}
+
+			.contact-inner {
+				width: min(1160px, calc(100% - 40px));
+				margin: 0 auto;
+				padding: 58px 0;
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 28px;
+				align-items: center;
+			}
+
+			.contact-inner h2 {
+				font-size: clamp(1.8rem, 4vw, 3rem);
+			}
+
+			.contact-inner p {
+				margin: 14px 0 0;
+				color: rgba(255, 255, 255, 0.72);
+				max-width: 680px;
+			}
+
+			.contact-links {
+				display: grid;
+				gap: 10px;
+				min-width: 250px;
+			}
+
+			.contact-links a {
+				padding: 12px 14px;
+				border: 1px solid rgba(255, 255, 255, 0.22);
+				border-radius: 7px;
+				font-weight: 800;
+				background: rgba(255, 255, 255, 0.06);
+			}
+
+			.footer {
+				padding: 24px 20px 36px;
+				text-align: center;
+				color: var(--muted);
+				font-size: 0.9rem;
+			}
+
+			@media (max-width: 940px) {
+				.hero,
+				.project-feature,
+				.skill-layout,
+				.contact-inner {
+					grid-template-columns: 1fr;
+				}
+
+				.hero {
+					padding-top: 48px;
+				}
+
+				.cards {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				.contact-links {
+					min-width: 0;
+				}
+			}
+
+			@media (max-width: 700px) {
+				.nav {
+					width: min(100% - 28px, 1160px);
+					align-items: flex-start;
+					padding: 14px 0;
+					flex-direction: column;
+				}
+
+				.nav-links {
+					width: 100%;
+					overflow-x: auto;
+					padding-bottom: 2px;
+				}
+
+				.hero,
+				section,
+				.contact-inner {
+					width: min(100% - 28px, 1160px);
+				}
+
+				.metrics,
+				.cards,
+				.timeline-item,
+				.project-feature {
+					grid-template-columns: 1fr;
+				}
+
+				.metric {
+					border-right: 0;
+					border-bottom: 1px solid var(--line);
+				}
+
+				.metric:last-child {
+					border-bottom: 0;
+				}
+
+				.section-head {
+					display: block;
+				}
+
+				.section-head p {
+					margin-top: 12px;
+				}
+
+				.project-copy,
+				.project-visual {
+					padding: 26px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<header class="topbar">
+				<nav class="nav" aria-label="Primary navigation">
+					<a class="brand" href="#top" aria-label="Bismark Osei Bonsu home">
+						<span class="brand-mark">BOB</span>
+						<span>Bismark Osei-Bonsu</span>
+					</a>
+					<div class="nav-links">
+						<a href="#projects">Projects</a>
+						<a href="#experience">Experience</a>
+						<a href="#capabilities">Capabilities</a>
+						<a href="#toolkit">Toolkit</a>
+						<a href="#contact">Contact</a>
+					</div>
+				</nav>
+			</header>
+
+			<main id="top">
+				<div class="hero">
+					<div>
+						<p class="kicker">Data Analyst / Data Scientist</p>
+						<h1>I'm Bismark, I turn complex data into decisions people can trust.</h1>
+						<p class="lede">
+							I'm an M.S. Computer Science candidate specializing in Artificial Intelligence, with 2+ years of
+							analytics experience across financial services and healthcare. I use SQL, Python, AI tools, dashboards,
+							and machine learning to translate data into clear recommendations for technical and non-technical teams.
+						</p>
+						<div class="hero-actions">
+							<a class="button" href="#projects">View Projects</a>
+							<a class="button secondary" href="Bismark-Osei-Bonsu-Resume.docx">View Resume</a>
+						</div>
+					</div>
+
+					<aside class="hero-panel" aria-label="Portfolio performance summary">
+						<div class="panel-top">
+							<span class="panel-title">Analytics Snapshot</span>
+							<span class="status">Available</span>
+						</div>
+						<div class="metrics">
+							<div class="metric">
+								<strong>94%</strong>
+								<span>Model accuracy</span>
+							</div>
+							<div class="metric">
+								<strong>2+</strong>
+								<span>Years experience</span>
+							</div>
+							<div class="metric">
+								<strong>2027</strong>
+								<span>M.S. AI candidate</span>
+							</div>
+						</div>
+						<div class="chart">
+							<svg viewBox="0 0 560 290" role="img" aria-label="Sample analytics dashboard chart">
+								<rect x="0" y="0" width="560" height="290" rx="8" fill="#f8fafc" />
+								<line x1="58" y1="224" x2="520" y2="224" stroke="#cfd8e3" stroke-width="2" />
+								<line x1="58" y1="52" x2="58" y2="224" stroke="#cfd8e3" stroke-width="2" />
+								<path
+									d="M58 196 C105 176, 123 153, 164 164 C205 175, 220 101, 258 112 C302 125, 316 82, 352 91 C397 102, 410 61, 448 68 C480 73, 498 50, 520 42"
+									fill="none"
+									stroke="#0f766e"
+									stroke-width="6"
+									stroke-linecap="round"
+								/>
+								<path
+									d="M58 196 C105 176, 123 153, 164 164 C205 175, 220 101, 258 112 C302 125, 316 82, 352 91 C397 102, 410 61, 448 68 C480 73, 498 50, 520 42 L520 224 L58 224 Z"
+									fill="#0f766e"
+									opacity="0.12"
+								/>
+								<rect x="86" y="128" width="48" height="96" rx="5" fill="#d85f45" />
+								<rect x="154" y="102" width="48" height="122" rx="5" fill="#c88719" />
+								<rect x="222" y="144" width="48" height="80" rx="5" fill="#17324d" />
+								<rect x="290" y="84" width="48" height="140" rx="5" fill="#2f855a" />
+								<rect x="358" y="116" width="48" height="108" rx="5" fill="#d85f45" />
+								<rect x="426" y="70" width="48" height="154" rx="5" fill="#c88719" />
+								<circle cx="520" cy="42" r="8" fill="#0f766e" />
+							</svg>
+							<div class="chart-caption">
+								<span>Prediction quality</span>
+								<span>Claim value trend</span>
+							</div>
+						</div>
+					</aside>
+				</div>
+
+				<section id="projects" aria-labelledby="projects-title">
+					<div class="section-head">
+						<div>
+							<p class="kicker">Selected Work</p>
+							<h2 id="projects-title">Projects with measurable outcomes.</h2>
+						</div>
+						<p>
+							These examples highlight the work I want hiring managers and collaborators to see first: predictive
+							modeling, healthcare analytics, SQL optimization, AI-assisted workflows, and clear communication.
+						</p>
+					</div>
+
+					<article class="project-feature">
+						<div class="project-copy">
+							<p class="eyebrow">Featured Machine Learning Project</p>
+							<h3>Health Insurance Claim Prediction System</h3>
+							<p>
+								A machine learning web app that evaluates health insurance claims and predicts approval status,
+								denial risk, pending review, and expected payout amount. The system uses patient demographics,
+								provider details, claim history, and engineered features to support faster, more consistent claim
+								review.
+							</p>
+							<p>
+								Built with Python, XGBoost, Scikit-learn, and Streamlit, achieving 94% accuracy across 1,000+
+								records.
+							</p>
+							<ul class="tags" aria-label="Technologies used">
+								<li>Python</li>
+								<li>XGBoost</li>
+								<li>Scikit-learn</li>
+								<li>Streamlit</li>
+								<li>Feature Engineering</li>
+							</ul>
+							<div class="card-actions">
+								<a class="button" href="https://github.com/bismarkosei0810/HEALTH-INSURANCE-CLAIM-SYSTEM">View GitHub</a>
+							</div>
+						</div>
+						<div class="project-visual" aria-label="Health Insurance Claim Prediction System screenshot">
+							<img
+								src="images/health-insurance-claims-dashboard.png"
+								alt="Screenshot of the Health Insurance Claim Prediction System dashboard"
+							/>
+						</div>
+					</article>
+				</section>
+
+				<section aria-labelledby="more-projects-title">
+					<div class="section-head">
+						<div>
+							<p class="kicker">More Project Areas</p>
+							<h2 id="more-projects-title">Analysis built for business questions.</h2>
+						</div>
+					</div>
+
+					<div class="cards">
+						<article class="card">
+							<div class="card-icon">SQL</div>
+							<h3>Relational Data Analysis & Query Optimization</h3>
+							<p>
+								Analyzed relational datasets, wrote efficient SQL queries, improved joins and aggregations, and
+								surfaced trends that support reporting and operational decision-making.
+							</p>
+							<ul class="tags">
+								<li>SQL</li>
+								<li>Data Modeling</li>
+								<li>Query Tuning</li>
+							</ul>
+						</article>
+						<article class="card">
+							<div class="card-icon">BI</div>
+							<h3>Dashboarding & KPI Reporting</h3>
+							<p>
+								Designed clear reporting views for tracking performance, comparing segments, and helping teams see
+								what changed, why it changed, and where to focus next.
+							</p>
+							<ul class="tags">
+								<li>Dashboards</li>
+								<li>KPI Design</li>
+								<li>Storytelling</li>
+							</ul>
+						</article>
+						<article class="card">
+							<div class="card-icon">ML</div>
+							<h3>Predictive Modeling & Classification</h3>
+							<p>
+								Built supervised learning workflows for classification and prediction, with attention to validation,
+								interpretability, and model performance that connects to real-world decisions.
+							</p>
+							<ul class="tags">
+								<li>Machine Learning</li>
+								<li>Classification</li>
+								<li>Model Evaluation</li>
+							</ul>
+						</article>
+					</div>
+				</section>
+
+				<section id="experience" aria-labelledby="experience-title">
+					<div class="section-head">
+						<div>
+							<p class="kicker">Experience</p>
+							<h2 id="experience-title">Analytics work across healthcare and finance.</h2>
+						</div>
+						<p>
+							My background combines hands-on data analysis, dashboard development, stakeholder communication, and
+							AI-focused problem solving.
+						</p>
+					</div>
+
+					<div class="timeline">
+						<article class="timeline-item">
+							<div class="timeline-meta">
+								<strong>Jan 2026 - Present</strong>
+								TruBridge | Remote
+							</div>
+							<div class="timeline-copy">
+								<h3>Healthcare Data Analytics Extern</h3>
+								<p>
+									Support operational and clinical decision-making by analyzing real-world healthcare datasets and
+									turning complex findings into clear, usable insights.
+								</p>
+								<ul>
+									<li>Analyze and validate healthcare data for accuracy, usability, and decision support.</li>
+									<li>Develop dashboards and reports for non-technical stakeholders.</li>
+									<li>Collaborate on structured analysis of business problems and present actionable findings.</li>
+								</ul>
+							</div>
+						</article>
+
+						<article class="timeline-item">
+							<div class="timeline-meta">
+								<strong>Aug 2022 - Dec 2024</strong>
+								Ecobank Ghana PLC
+							</div>
+							<div class="timeline-copy">
+								<h3>Data Analyst</h3>
+								<p>
+									Extracted, cleaned, and analyzed large-scale financial data to help leadership monitor
+									performance, customer behavior, operations, and growth opportunities.
+								</p>
+								<ul>
+									<li>Used SQL and Python to prepare datasets and support business decision-making.</li>
+									<li>Built dashboards and reports for leadership performance monitoring.</li>
+									<li>Translated technical findings into structured reports and business recommendations.</li>
+								</ul>
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<section aria-labelledby="education-title">
+					<div class="section-head">
+						<div>
+							<p class="kicker">Education</p>
+							<h2 id="education-title">Computer science foundation with an AI focus.</h2>
+						</div>
+					</div>
+
+					<div class="cards">
+						<article class="card">
+							<div class="card-icon">MS</div>
+							<h3>M.S. Computer Science, Artificial Intelligence</h3>
+							<p>
+								University of the Potomac, Washington, DC. Expected May 2027. Relevant coursework includes Methods
+								of Artificial Intelligence and Machine Learning, and Cloud Computing.
+							</p>
+						</article>
+						<article class="card">
+							<div class="card-icon">BS</div>
+							<h3>B.S. Computer Science</h3>
+							<p>
+								Ghana Communication Technology University, 2024. Built a strong technical foundation in computing,
+								data, and analytical problem solving.
+							</p>
+						</article>
+						<article class="card">
+							<div class="card-icon">AI</div>
+							<h3>Responsible AI Interest</h3>
+							<p>
+								Focused on AI governance, responsible AI use, public sector technology adoption, and communicating
+								AI insights clearly to non-technical audiences.
+							</p>
+						</article>
+					</div>
+				</section>
+
+				<section id="capabilities" aria-labelledby="capabilities-title">
+					<div class="section-head">
+						<div>
+							<p class="kicker">Capabilities</p>
+							<h2 id="capabilities-title">What I bring to a data team.</h2>
+						</div>
+						<p>
+							I focus on the full path from raw data to useful decisions: cleaning, analysis, modeling,
+							visualization, AI evaluation, documentation, and communication.
+						</p>
+					</div>
+
+					<div class="skill-layout">
+						<div class="stack">
+							<div class="skill-row">
+								<strong>AI Tool Evaluation</strong>
+								<span>Evaluate AI technologies, prompt workflows, and automation opportunities for practical use cases.</span>
+							</div>
+							<div class="skill-row">
+								<strong>Data Preparation</strong>
+								<span>Clean, join, validate, and reshape datasets so insights are based on reliable inputs.</span>
+							</div>
+							<div class="skill-row">
+								<strong>Model Development</strong>
+								<span>Train, tune, evaluate, and explain predictive models with a focus on usable outcomes.</span>
+							</div>
+						</div>
+
+						<div class="stack">
+							<div class="skill-row">
+								<strong>Reporting & Visualization</strong>
+								<span>Create Power BI, Tableau, and dashboard reports that make patterns easy to scan and act on.</span>
+							</div>
+							<div class="skill-row">
+								<strong>SQL & Databases</strong>
+								<span>Write structured queries for exploration, reporting, aggregation, and performance improvement.</span>
+							</div>
+							<div class="skill-row">
+								<strong>Communication</strong>
+								<span>Write documentation and present findings in plain language, with context and clear recommendations.</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section id="toolkit" aria-labelledby="toolkit-title">
+					<div class="section-head">
+						<div>
+							<p class="kicker">Toolkit</p>
+							<h2 id="toolkit-title">Tools and technologies.</h2>
+						</div>
+					</div>
+					<div class="tools" aria-label="Tools and technologies">
+						<span>Python</span>
+						<span>SQL</span>
+						<span>Excel</span>
+						<span>Power BI</span>
+						<span>Tableau</span>
+						<span>XGBoost</span>
+						<span>Scikit-learn</span>
+						<span>Pandas</span>
+						<span>NumPy</span>
+						<span>Streamlit</span>
+						<span>ChatGPT</span>
+						<span>Microsoft Copilot</span>
+						<span>Jupyter Notebook</span>
+						<span>Git</span>
+						<span>ETL</span>
+						<span>Data Warehousing</span>
+						<span>Data Cleaning</span>
+						<span>Feature Engineering</span>
+						<span>Dashboarding</span>
+						<span>KPI Reporting</span>
+						<span>Predictive Analytics</span>
+						<span>Statistical Analysis</span>
+						<span>Query Optimization</span>
+					</div>
+				</section>
+			</main>
+
+			<div id="contact" class="contact-band">
+				<div class="contact-inner">
+					<div>
+						<p class="kicker">Contact</p>
+						<h2>Let's build useful analysis from your data.</h2>
+						<p>
+							I'm based in Darien, Illinois, and open to data analyst, business analyst, AI analyst, and data science
+							opportunities.
+						</p>
+					</div>
+					<div class="contact-links" aria-label="Contact links">
+						<a href="mailto:Bismarkosei0810@gmail.com">Bismarkosei0810@gmail.com</a>
+						<a href="tel:+13126871722">(312) 687-1722</a>
+						<a href="Bismark-Osei-Bonsu-Resume.docx">Download Resume</a>
+						<a href="https://www.linkedin.com/in/bismark-osei-bonsu/">LinkedIn Profile</a>
+						<a href="https://github.com/bismarkosei0810">GitHub Portfolio</a>
+					</div>
+				</div>
+			</div>
+
+			<footer class="footer">
+				<span>&copy; 2026 Bismark Osei Bonsu. Portfolio built for data analytics, machine learning, and business insight.</span>
+			</footer>
+		</div>
+	</body>
+</html>
